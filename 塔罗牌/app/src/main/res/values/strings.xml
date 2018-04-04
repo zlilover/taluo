@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">塔罗牌</string>
+    <string name="daily_title">每日一牌</string>
+    <string name="daily_title_little">一牌一运势</string>
+    <string name="today_in_history">历史上的今天</string>
+    <string name="more">查看更多</string>
+    <string name="more_meaning">点击查看牌义</string>
+    <string name="newline">\n</string>
+    <string name="unlock">解锁牌阵</string>
+    <string name="scroll_enable">左右滑动，可切换牌阵类型</string>
+    <string name="depart">/</string>
+    <string name="tips">小贴士</string>
+
+</resources>

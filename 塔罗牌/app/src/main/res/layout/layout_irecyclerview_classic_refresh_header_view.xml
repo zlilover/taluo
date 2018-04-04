@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:my="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="vertical">
+
+    <com.fairytale.fortunetarot.widget.SwingIndicator
+        android:id="@+id/swingIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        my:circleRadius="10dp"
+        my:circleColor="@color/base_clor"
+        my:swingRadius="20dp"
+        my:cycle="400"
+        android:layout_gravity="center_horizontal"/>
+
+    <com.fairytale.fortunetarot.widget.CustomFontTextView
+        android:id="@+id/tvRefresh"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/gray_dark"
+        my:customFont="font_italics.ttf"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/swingIndicator" />
+
+</LinearLayout>

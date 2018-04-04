@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+                <com.fairytale.fortunetarot.widget.spinnerloading.SpinnerLoading
+                    android:id="@+id/spinnerLoading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:circle_color="@color/base_clor_dark"
+                    app:circle_color_move="@color/base_clor_dark"
+                    android:layout_centerVertical="true"/>
+
+                <com.fairytale.fortunetarot.widget.CustomFontTextView
+                    android:id="@+id/tv_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="加载中"
+                    app:customFont="font_italics.ttf"
+                    android:textColor="@color/gray_dark"
+                    app:isBold="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/spinnerLoading"
+                    android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+</LinearLayout>

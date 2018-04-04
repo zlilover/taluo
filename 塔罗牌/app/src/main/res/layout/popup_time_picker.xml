@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/lssdjt_item_bg">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="取消"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            app:customFont="font_italics.ttf"
+            android:textSize="18sp"
+            android:textColor="@color/text_title_white"
+            android:layout_alignParentLeft="true"/>
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/text_title_white"
+            app:customFont="font_italics.ttf"
+            android:textSize="18sp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_light_gray"/>
+
+    <com.fairytale.fortunetarot.widget.TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:model="monthAndDay">
+
+    </com.fairytale.fortunetarot.widget.TimePicker>
+</LinearLayout>

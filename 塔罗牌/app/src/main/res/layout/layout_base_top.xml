@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_top"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:visibility="visible"
+    android:background="@android:color/transparent">
+
+    <com.fairytale.fortunetarot.widget.CustomFontTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="24sp"
+        app:isBold="true"
+        app:customFont="font_fangsong.ttf"
+        android:textColor="@color/text_title_white"/>
+
+    <ImageView
+        android:id="@+id/img_base_left"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@mipmap/icon_back"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:focusable="true"
+        android:clickable="true"
+        android:scaleType="center"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/img_base_right"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:focusable="true"
+        android:clickable="true"
+        android:scaleType="center"/>
+
+
+</RelativeLayout>

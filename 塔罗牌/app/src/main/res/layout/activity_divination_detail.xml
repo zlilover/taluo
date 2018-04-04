@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_unlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/bg_btn_unlock">
+
+        <RelativeLayout
+            android:id="@+id/rl_unlock"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_red_bg_selector"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_gravity="center"
+            android:descendantFocusability="blocksDescendants">
+
+            <com.fairytale.fortunetarot.widget.CustomFontTextView
+                android:id="@+id/customFontTextView_action"
+                android:drawableLeft="@mipmap/icon_card_array_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unlock"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:drawablePadding="8dp"
+                app:isBold="true"
+                android:textSize="18sp"
+                app:customFont="font_italics.ttf"
+               android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_light_gray"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fl_unlock"
+        android:layout_below="@id/top"
+        android:layout_marginTop="16dp">
+
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

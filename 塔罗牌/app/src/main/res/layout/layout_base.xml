@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:my="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@mipmap/img_base_bg">
+
+    <include
+        layout="@layout/layout_base_top"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
+
+        <com.fairytale.fortunetarot.widget.SwingIndicator
+            android:id="@+id/swingIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            my:circleRadius="10dp"
+            my:circleColor="@color/base_clor"
+            my:swingRadius="50dp"
+            my:cycle="400"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

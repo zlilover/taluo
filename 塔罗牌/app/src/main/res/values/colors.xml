@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="orange">#f37433</color>
+    <color name="drak_orange">#ed5c34</color>
+    <color name="navigation_text_red">#A8261D</color>
+    <color name="base_clor">#CBA374</color>
+    <color name="base_clor_dark">#997455</color>
+    <color name="gray_dark">#7E634F</color>
+    <color name="light_dark">#B19D87</color>
+    <color name="line_drak_gray">#784639</color>
+    <color name="line_light_gray">#6B5545</color>
+    <color name="text_title_white">#FFF9EE</color>
+    <color name="text_date_gray">#60281C</color>
+    <color name="text_dark_red">#BB0021</color>
+    <color name="text_date_red">#6D2815</color>
+    <color name="color_tansparent">#00000000</color>
+
+    <color name="white">#ffffff</color>
+    <color name="line_color_gray">#bbbbbb</color>
+
+    <color name="round_view_brown">#3F261E</color>
+
+</resources>

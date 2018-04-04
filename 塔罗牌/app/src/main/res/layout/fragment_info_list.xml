@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:loadMoreEnabled="true"
+    app:refreshEnabled="true">
+
+    <com.aspsine.irecyclerview.IRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/iRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:loadMoreEnabled="true"
+        app:refreshEnabled="true">
+
+    </com.aspsine.irecyclerview.IRecyclerView>
+
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <com.fairytale.fortunetarot.widget.spinnerloading.SpinnerLoading
+            android:id="@+id/spinnerLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:circle_color="@color/base_clor_dark"
+            app:circle_color_move="@color/base_clor_dark" />
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/tv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:text="加载中"
+            android:textColor="@color/gray_dark"
+            android:textSize="18sp"
+            app:customFont="font_italics.ttf"
+            app:isBold="true" />
+    </LinearLayout>
+
+</FrameLayout>

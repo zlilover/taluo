@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.fairytale.fortunetarot.widget.CustomImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:isMeasuredByWithOrHeight="width"
+            app:autoMeasure="false"
+            android:background="@mipmap/zhanbu_item_bg2"/>
+
+
+        <com.fairytale.fortunetarot.widget.CustomImageView
+            android:id="@+id/customImageView_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isMeasuredByWithOrHeight="width"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="12dp"
+            app:autoMeasure="false"/>
+
+        <com.fairytale.fortunetarot.widget.CustomImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:isMeasuredByWithOrHeight="width"
+            app:autoMeasure="false"
+            android:background="@mipmap/zhanbu_item_bg1"/>
+
+        <com.fairytale.fortunetarot.widget.CustomImageView
+            android:id="@+id/customImageView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isMeasuredByWithOrHeight="width"
+            app:autoMeasure="false"
+            android:layout_gravity="top"/>
+    </FrameLayout>
+
+
+</FrameLayout>

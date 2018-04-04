@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>  
+    <declare-styleable name="swingindicator">
+        <attr name="circleRadius" format="dimension" />
+        <attr name="swingRadius" format="dimension" />
+        <attr name="circleColor" format="reference|color" />
+        <attr name="cycle" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomFontTextView">
+        <attr name="customFont" format="string"/>
+        <attr name="isBold" format="boolean"/>
+        <attr name="departTag" format="string"/>
+        <attr name="departByPos" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="BottomNavigationBar">
+        <attr name="bnbElevation" format="dimension" />
+        <attr name="bnbActiveColor" format="color" />
+        <attr name="bnbInactiveColor" format="color" />
+        <attr name="bnbBackgroundColor" format="color" />
+        <attr name="bnbAnimationDuration" format="integer" />
+        <attr name="bnbMode" format="enum">
+            <enum name="mode_default" value="0" />
+            <enum name="mode_fixed" value="1" />
+            <enum name="mode_shifting" value="2" />
+            <enum name="mode_fixed_no_title" value="3" />
+            <enum name="mode_shifting_no_title" value="4" />
+        </attr>
+        <attr name="bnbBackgroundStyle" format="enum">
+            <enum name="background_style_default" value="0" />
+            <enum name="background_style_static" value="1" />
+            <enum name="background_style_ripple" value="2" />
+        </attr>
+        <attr name="bnbAutoHideEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomImageView">
+        <attr name="isMeasuredByWithOrHeight" format="enum">
+            <enum name="height" value="0"/>
+            <enum name="width" value="1"/>
+        </attr>
+        <attr name="autoMeasure" format="boolean"/>
+        <attr name="isSquare" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="TimePicker">
+        <attr name="model" format="enum">
+            <enum name="noday" value="0"/>
+            <enum name="withday" value="1"/>
+            <enum name="hour" value="2"/>
+            <enum name="minute" value="3"/>
+            <enum name="monthAndDay" value="4"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SpinnerLoading">
+        <attr name="circle_color" format="color"/>
+        <attr name="circle_color_move" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="IRecyclerView">
+        <attr name="refreshHeaderLayout" format="reference" />  <!--refresh header layout res id-->
+        <attr name="loadMoreFooterLayout" format="reference" /> <!--loadmore fotter layout res id-->
+        <attr name="refreshEnabled" format="boolean" />
+        <attr name="loadMoreEnabled" format="boolean" />
+        <attr name="refreshFinalMoveOffset" format="dimension" />   <!--refresh header max move distance-->
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BadgeText" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">@dimen/badge_text_size</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_marginTop">@dimen/badge_top_margin</item>
+        <item name="android:paddingRight">@dimen/badge_width_padding</item>
+        <item name="android:paddingLeft">@dimen/badge_width_padding</item>
+        <item name="android:paddingBottom">@dimen/badge_height_padding</item>
+        <item name="android:paddingTop">@dimen/badge_height_padding</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="animation_in_exit">
+        <item name="android:windowEnterAnimation">@anim/animation_enter</item>
+        <item name="android:windowExitAnimation">@anim/animation_exit</item>
+    </style>
+
+    <style name="animation_bottom">
+        <item name="android:windowEnterAnimation">@anim/animation_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/animation_bottom_out</item>
+    </style>
+
+    <style name="animation_right">
+        <item name="android:windowEnterAnimation">@anim/animation_right_in</item>
+        <item name="android:windowExitAnimation">@anim/animation_right_out</item>
+    </style>
+
+    <style name="animation_top">
+        <item name="android:windowEnterAnimation">@anim/anim_top_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_top_out</item>
+    </style>
+
+</resources>
