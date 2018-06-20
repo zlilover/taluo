@@ -28,14 +28,17 @@ import java.util.ArrayList;
 
 public class DivinationListFragment extends BaseFragment{
     private int type;
+    private String groupName;
     private GridView gridView;
     private View rootView;
     private ArrayList<DivinationItemEntity> divinationItemEntities;
     private DivinationGridViewAdapter divinationGridViewAdapter;
+    private boolean isPermission;
 
     @Override
     public void setArguments(Bundle args) {
         type = args.getInt("type") + 1;
+        groupName = args.getString("groupName");
     }
 
     @Nullable
@@ -61,7 +64,7 @@ public class DivinationListFragment extends BaseFragment{
 
     private void initView(View view) {
         gridView = initViewById(view,R.id.gridView);
-        divinationGridViewAdapter = new DivinationGridViewAdapter(getActivity(),divinationItemEntities,type);
+        divinationGridViewAdapter = new DivinationGridViewAdapter(getActivity(),divinationItemEntities,type,isPermission);
         gridView.setAdapter(divinationGridViewAdapter);
     }
 
@@ -71,54 +74,32 @@ public class DivinationListFragment extends BaseFragment{
             String text = Util.getStringfromAssets(getContext(), "cardarrayinfo/" +  type + ".txt");
             String[] contents = text.split("@");
             String baseConfig = SPUtil.get(getActivity(),"BaseConfig","").toString();
+            BaseConfigEntity baseConfigEntity = null;
             if (!TextUtils.isEmpty(baseConfig)) {
-                BaseConfigEntity baseConfigEntity = JsonUtils.jsonStringToEntity(baseConfig,BaseConfigEntity.class);
-                if (baseConfigEntity == null) {
-                    baseConfigEntity = new BaseConfigEntity();
-                }
-                for (int i = 0; i < contents.length; i ++) {
-                    DivinationItemEntity entity = new DivinationItemEntity();
-                    String[] info = contents[i].split("#");
-                    entity.setTitle(info[0]);
-                    String id = info[1].split("\\.")[0];
-                    entity.setInfoId(id);
-                    if ("1".equals(baseConfigEntity.getIsusefont())) {
-                        entity.setTitleIconPath("thetitles/the_titles_" + id + ".png");
-                    } else {
-                        entity.setTitleIconPath("thetitles/the_titles_kaiti" + id + ".png");
-                    }
-                    String name;
-                    switch (type) {
-                        case 1:
-                            name = "aiqing";
-                            break;
-                        case 2:
-                            name = "caiyun";
-                            break;
-                        case 3:
-                            name = "jiankang";
-                            break;
-                        case 4:
-                            name = "shiye";
-                            break;
-                        case 5:
-                            name = "xuexi";
-                            break;
-                        case 6:
-                            name = "yuncheng";
-                            break;
-                        default:
-                            name = "aiqing";
-                    }
-                    if ("a".equals(baseConfigEntity.getIndexres())) {
-                        entity.setContentIconPath("icon_with_nopermision/leibie_" + name + ".png");
-                    } else {
-                        entity.setContentIconPath("icon_with_permision/leibie_" + name + ".png");
-                    }
-                    divinationItemEntities.add(entity);
-                }
+                baseConfigEntity = JsonUtils.jsonStringToEntity(baseConfig,BaseConfigEntity.class);
             }
-
+            if (baseConfigEntity == null) {
+                baseConfigEntity = new BaseConfigEntity();
+            }
+            for (int i = 0; i < contents.length; i ++) {
+                DivinationItemEntity entity = new DivinationItemEntity();
+                String[] info = contents[i].split("#");
+                entity.setTitle(info[0]);
+                String id = info[1].split("\\.")[0];
+                entity.setInfoId(id);
+                if ("1".equals(baseConfigEntity.getIsusefont())) {
+                    entity.setTitleIconPath("thetitles/the_titles_" + id + ".png");
+                } else {
+                    entity.setTitleIconPath("thetitles/the_titles_kaiti" + id + ".png");
+                }
+                entity.setGroupName(groupName);
+                if ("a".equals(baseConfigEntity.getIndexres())) {
+                    isPermission = true;
+                } else {
+                    isPermission = false;
+                }
+                divinationItemEntities.add(entity);
+            }
         }
     }
 

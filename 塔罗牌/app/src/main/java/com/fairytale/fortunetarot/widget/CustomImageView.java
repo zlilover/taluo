@@ -32,7 +32,7 @@ public class CustomImageView extends AppCompatImageView {
         isSquare = array.getBoolean(R.styleable.CustomImageView_isSquare,false);
         array.recycle();
         if (measureMode != -1 && autoMeasure) {
-           throw  new RuntimeException("if you want to measure this view yourself,you should specify a mode int xml like app:isMeasuredByWithOrHeight=\"width\" to decide how to measure this view ");
+           throw  new RuntimeException("if you want to measure this view yourself,you should specify a mode in xml like app:isMeasuredByWithOrHeight=\"width\" to decide how to measure this view ");
         }
         if (getScaleType() != ScaleType.FIT_CENTER && !isSquare) {
             throw  new RuntimeException("don't specify ScaleType in xml for this view when you don't want keep scale for image");

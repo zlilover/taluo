@@ -18,6 +18,7 @@ import com.fairytale.fortunetarot.view.HistoryView;
 import com.fairytale.fortunetarot.widget.PopupTimePicker;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by lizhen on 2018/2/1.

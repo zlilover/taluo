@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:customFont="font_fangsong.ttf"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text_title_white"
+            app:isBold="true" />
+
+        <View
+            android:layout_width="32dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_toLeftOf="@id/tv_type"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"/>
+
+        <View
+            android:layout_width="32dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_toRightOf="@id/tv_type"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <com.fairytale.fortunetarot.widget.CustomGridView
+        android:id="@+id/gridView_arcana"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:horizontalSpacing="4dp"
+        android:verticalSpacing="4dp"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

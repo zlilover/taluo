@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:background="@mipmap/paizhen_item_bg"
+    android:layout_marginBottom="20dp">
+
+    <com.fairytale.fortunetarot.widget.CustomFontTextView
+        android:id="@+id/customFontTextView_cardNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:customFont="font_fangsong.ttf"
+        android:layout_marginBottom="10dp"
+        app:isBold="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/line_light_gray"/>
+
+    <com.fairytale.fortunetarot.widget.CustomFontTextView
+        android:id="@+id/customFontTextView_cardName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/customFontTextView_cardNum"
+        android:textSize="18sp"
+        android:textColor="@color/text_title_white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        app:customFont="font_italics.ttf"
+        app:isBold="true"/>
+
+
+    <com.fairytale.fortunetarot.widget.CustomImageView
+        android:id="@+id/customImageView_card"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:autoMeasure="false"
+        app:isMeasuredByWithOrHeight="height"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@id/customFontTextView_cardName"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

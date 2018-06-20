@@ -24,4 +24,8 @@
 
     <color name="round_view_brown">#3F261E</color>
 
+    <color name="transparent">#000000</color>
+
+    <color name="home_bg">#f7f7f8</color>
+
 </resources>

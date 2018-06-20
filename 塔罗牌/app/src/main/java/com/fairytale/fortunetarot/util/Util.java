@@ -32,6 +32,27 @@ public class Util {
         return stringBuilder.toString();
     }
 
+    //整数转化成罗马数字
+    //贪心算法，每次取匹配最大值
+    public static String intToRoman(int number) {
+        if (number == 0) {
+            return "0";
+        }
+        int[] base = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+        String[] str = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX",
+                "V", "IV", "I" };
+        String roman = "";
+        int i = 0;
+        while (number != 0) {
+            if (number >= base[i]) {
+                number -= base[i];
+                roman += str[i];
+            } else
+                i++;
+        }
+        return roman;
+    }
+
     /**
      * 判断当前月份是否闰月
      * @param year
@@ -105,10 +126,16 @@ public class Util {
                 SPUtil.put(context,path,text);
                 return text;
             } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         } else {
             return content;
         }
+    }
+
+    public static String arabToChinese(int num) {
+        String [] chineses = {"一","二","三","四","五","六","七","八","九","十","十一","十二","十三","十四","十五"};
+        return chineses[num - 1];
     }
 }

@@ -7,8 +7,34 @@
     <string name="more_meaning">点击查看牌义</string>
     <string name="newline">\n</string>
     <string name="unlock">解锁牌阵</string>
+    <string name="opinion_unlock">好评解锁</string>
+    <string name="buy">立即购买(30元)</string>
+    <string name="buy_revert">恢复购买</string>
+    <string name="vip">会员特权</string>
+    <string name="unlock_content">五星好评\n即可解锁本排阵</string>
     <string name="scroll_enable">左右滑动，可切换牌阵类型</string>
     <string name="depart">/</string>
+    <string name="no_ads">免除所有广告\n界面清爽</string>
+    <string name="free_divination">80种占卜牌阵\n全部免费</string>
+    <string name="free_card_meaning">免费查看78牌\n正逆位牌义</string>
+    <string name="divination_detail">同步查看占卜结果的\n牌义详细解说</string>
+    <!--<string name="free_tarot">fdsf</string>-->
+    <!--<string name="vip_tips">小fasdf</string>-->
     <string name="tips">小贴士</string>
+    <string name="title_card_meaning">塔罗牌牌面</string>
+    <string name="title_card_array">塔罗牌阵</string>
+    <string name="card_meaning_des1">塔罗牌总共有七十八张，每张精致的纸牌都有它独特的图案和意义</string>
+    <string name="card_meaning_des2">每一张塔罗牌都有一个象征，指出你的内在思想潜意识动机</string>
+    <string name="card_meaning_des3">隐藏的恐惧和渴望，以及你的个性，长远运程和弱点</string>
+    <string name="card_meaning_des4">每一张塔罗牌代表一个历程，有欢乐、痛苦希望</string>
+    <string name="card_meaning_des5">改变和重生，是人们生活的再现</string>
+    <string name="click_to_detail">点击牌面查看详情</string>
+    <string name="big_arcana">大阿卡拉牌</string>
+    <string name="little_arcana">小阿卡拉牌</string>
+    <string name="feedback">反馈</string>
+    <string name="card_detail">牌面详情</string>
+    <string name="card_array_detail">牌阵详情</string>
+    <string name="ads">加入官方QQ群%1$s，反馈您在使用中遇到的问题，</string>
+    <string name="communication">还可以和更多塔罗牌爱好者交流</string>
 
 </resources>

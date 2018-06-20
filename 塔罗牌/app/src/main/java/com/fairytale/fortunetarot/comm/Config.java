@@ -9,5 +9,6 @@ public class Config {
     public static final String JPUSH_ACTION = "com.fairytable.fortunetarot.pushaction";
     public static final String NOTIFICATION_CLICKED_TO_MAIN = "notification_clicked_to_main";
     public static final String NOTIFICATION_CLICKED_TO_SHOW_BUY = "notification_clicked_to_show_buy";
+    public static final String CONFIG_GOT = "com.fairytable.fortunetarot.configgot";
 
 }

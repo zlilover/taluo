@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/paiyi_item_bg">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="top|center_horizontal"
+        android:gravity="center_horizontal">
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/text_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:customFont="font_italics.ttf"
+            app:isBold="true"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/text_title_white"/>
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/text_constellation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            app:customFont="font_italics.ttf"
+            app:isBold="true"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/text_title_white"/>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/img_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/thehermit_icon"
+        android:layout_gravity="center"/>
+
+
+    <LinearLayout
+        android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="bottom|center_horizontal">
+
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/tv_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            app:customFont="font_italics.ttf"
+            app:isBold="true"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/text_title_white"/>
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/tv_card_name_eng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:customFont="font_apple_chancery.ttf"
+            android:textSize="13sp"
+            android:textColor="@color/text_title_white"/>
+    </LinearLayout>
+
+</FrameLayout>

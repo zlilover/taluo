@@ -18,7 +18,6 @@ import com.fairytale.fortunetarot.util.Util;
 import com.fairytale.fortunetarot.widget.ViewPagerIndicator;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -95,6 +94,7 @@ public class DivinationFragment extends BaseFragment {
             fragments[i] = DivinationListFragment.class;
         }
         infoPagerAdapter = new InfoPagerAdapter(getChildFragmentManager(),fragments);
+        infoPagerAdapter.setTitles(titles);
         viewPager.setAdapter(infoPagerAdapter);
         viewPagerIndicator.setViewPager(viewPager);
     }
@@ -103,4 +103,5 @@ public class DivinationFragment extends BaseFragment {
     BasePresenter setPresenter() {
         return null;
     }
+
 }

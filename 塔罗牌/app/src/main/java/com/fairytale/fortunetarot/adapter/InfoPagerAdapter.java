@@ -15,11 +15,16 @@ import com.fairytale.fortunetarot.fragment.InfoListFragment;
 public class InfoPagerAdapter extends FragmentPagerAdapter {
     private Class[] fragmentList;
     private BaseFragment[] fragments;
+    private String[] titles;
 
     public InfoPagerAdapter(FragmentManager fragmentManager,Class[] fragmentList) {
         super(fragmentManager);
         this.fragmentList = fragmentList;
         fragments = new BaseFragment[fragmentList.length];
+    }
+
+    public void setTitles(String[] titles) {
+        this.titles = titles;
     }
 
     @Override
@@ -40,6 +45,9 @@ public class InfoPagerAdapter extends FragmentPagerAdapter {
                 fragment = (BaseFragment) fragmentList[position].newInstance();
                 Bundle bundle = new Bundle();
                 bundle.putInt("type",position);
+                if (titles != null) {
+                    bundle.putString("groupName",titles[position]);
+                }
                 fragment.setArguments(bundle);
                 fragments[position] = fragment;
             } catch (InstantiationException e) {

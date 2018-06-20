@@ -12,6 +12,9 @@ public class DivinationItemEntity extends BaseEntity implements Parcelable{
     private String infoId;
     private String titleIconPath;
     private String contentIconPath;
+    private String groupName;
+    private String groupId;
+    private int cardCount;
 
     public String getTitle() {
         return title;
@@ -45,6 +48,30 @@ public class DivinationItemEntity extends BaseEntity implements Parcelable{
         this.contentIconPath = contentIconPath;
     }
 
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public int getCardCount() {
+        return cardCount;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public void setCardCount(int cardCount) {
+        this.cardCount = cardCount;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -56,6 +83,9 @@ public class DivinationItemEntity extends BaseEntity implements Parcelable{
         dest.writeString(infoId);
         dest.writeString(titleIconPath);
         dest.writeString(contentIconPath);
+        dest.writeString(groupName);
+        dest.writeString(groupId);
+        dest.writeInt(cardCount);
     }
 
     public static final Creator<DivinationItemEntity> CREATOR = new Creator<DivinationItemEntity>() {
@@ -66,6 +96,9 @@ public class DivinationItemEntity extends BaseEntity implements Parcelable{
             divinationItemEntity.setInfoId(source.readString());
             divinationItemEntity.setTitleIconPath(source.readString());
             divinationItemEntity.setContentIconPath(source.readString());
+            divinationItemEntity.setGroupName(source.readString());
+            divinationItemEntity.setGroupId(source.readString());
+            divinationItemEntity.setCardCount(source.readInt());
             return divinationItemEntity;
         }
 

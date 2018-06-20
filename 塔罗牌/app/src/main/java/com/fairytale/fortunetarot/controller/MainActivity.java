@@ -5,22 +5,28 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.fairytale.fortunetarot.R;
 import com.fairytale.fortunetarot.comm.Config;
+import com.fairytale.fortunetarot.entity.BaseConfigEntity;
 import com.fairytale.fortunetarot.fragment.BaseFragment;
 import com.fairytale.fortunetarot.fragment.CardArrayFragment;
 import com.fairytale.fortunetarot.fragment.CardMeaningFragment;
 import com.fairytale.fortunetarot.fragment.DailyFragment;
 import com.fairytale.fortunetarot.fragment.DivinationFragment;
 import com.fairytale.fortunetarot.fragment.InfoFragment;
+import com.fairytale.fortunetarot.http.request.BaseConfigRequest;
 import com.fairytale.fortunetarot.presenter.BasePresenter;
 import com.fairytale.fortunetarot.util.ActivityManager;
+import com.fairytale.fortunetarot.util.JsonUtils;
+import com.fairytale.fortunetarot.util.SPUtil;
 import com.fairytale.fortunetarot.util.Util;
+
+import rx.Observer;
+import rx.functions.Action1;
 
 public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener{
     private BottomNavigationBar bottom_navigation_bar;
@@ -47,7 +53,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         } catch (RuntimeException e) {
             typeface = null;
         }
-
         needTop(false);
         needBack(false);
         bottom_navigation_bar = initViewById(R.id.bottom_navigation_bar);
@@ -58,7 +63,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 .addItem(new BottomNavigationItem(R.mipmap.icon_divination_selected, "占卜",typeface).setActiveColorResource(R.color.navigation_text_red).setInActiveColorResource(R.color.base_clor_dark).setInactiveIconResource(R.mipmap.icon_divination_normal))
                 .addItem(new BottomNavigationItem(R.mipmap.icon_card_meaning_selected, "牌义",typeface).setActiveColorResource(R.color.navigation_text_red).setInActiveColorResource(R.color.base_clor_dark).setInactiveIconResource(R.mipmap.icon_card_meaning_normal))
                 .addItem(new BottomNavigationItem(R.mipmap.icon_card_array_selected, "牌阵",typeface).setActiveColorResource(R.color.navigation_text_red).setInActiveColorResource(R.color.base_clor_dark).setInactiveIconResource(R.mipmap.icon_card_array_normal))
-                .setFirstSelectedPosition(0)
+                .setFirstSelectedPosition(2)
                 .initialise();
         bottom_navigation_bar.setTabSelectedListener(this);
     }
@@ -70,8 +75,32 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     protected void initData() {
-        mJumpToWitchItem = getIntent().getIntExtra(Config.NOTIFICATION_CLICKED_TO_MAIN,0);
-        onTabSelected(mJumpToWitchItem);
+        new BaseConfigRequest().getBaseConfig().subscribe(new Observer<BaseConfigEntity>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mJumpToWitchItem = getIntent().getIntExtra(Config.NOTIFICATION_CLICKED_TO_MAIN,2); // 默认跳转至占卜tab
+                onTabSelected(mJumpToWitchItem);
+            }
+
+            @Override
+            public void onNext(BaseConfigEntity baseConfigEntity) {
+                String baseConfig = JsonUtils.entityToJsonString(baseConfigEntity);
+                SPUtil.put(MainActivity.this,"BaseConfig",baseConfig);
+                SPUtil.put(MainActivity.this,"isGoodOpinionToUnlock",baseConfigEntity.getIshaoping());
+                mJumpToWitchItem = getIntent().getIntExtra(Config.NOTIFICATION_CLICKED_TO_MAIN,2); // 默认跳转至占卜tab
+                onTabSelected(mJumpToWitchItem);
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     void tabChanged(BaseFragment baseFragment) {

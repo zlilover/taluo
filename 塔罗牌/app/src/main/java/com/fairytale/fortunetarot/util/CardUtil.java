@@ -3,9 +3,17 @@ package com.fairytale.fortunetarot.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 import com.fairytale.fortunetarot.comm.App;
+import com.fairytale.fortunetarot.entity.ArcanaCardGroup;
+import com.fairytale.fortunetarot.entity.ArcanaCards;
+import com.fairytale.fortunetarot.entity.BaseConfigEntity;
+import com.fairytale.fortunetarot.entity.DivinationItemEntity;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -58,5 +66,117 @@ public class CardUtil {
         return cardInfo;
     }
 
+    public String[] getCards() {
+        return cards;
+    }
 
+    public static ArrayList<ArcanaCards> getCardsInfo(Context context,String path) {
+        String cardsInfoJson = SPUtil.get(context,"cardinfos","").toString();
+        if (!TextUtils.isEmpty(cardsInfoJson)) {
+            Type type = new TypeToken<ArrayList<ArcanaCards>>(){}.getType();
+            return JsonUtils.jsonStringToEntity(cardsInfoJson,type);
+        }
+        else {
+            ArrayList<ArcanaCards> cardsList = new ArrayList<>();
+            String infoText = Util.getStringfromAssets(context,path);
+
+            if (infoText == null) {
+                return null;
+            }
+            String result = infoText.replace("@",",");
+            String[] cards = result.split(",");
+            for (String card: cards) {
+                String[] cardInfo = card.split("#");
+                if (cardInfo.length < 5) {
+                    // 文档有误
+                    return null;
+                }
+                ArcanaCards arcanaCards = new ArcanaCards();
+                arcanaCards.setName_for_icon(cardInfo[0]);
+                arcanaCards.setName(cardInfo[1]);
+                arcanaCards.setName_eng(cardInfo[2]);
+                arcanaCards.setRoma_num(cardInfo[3]);
+                arcanaCards.setConstellation(cardInfo[4]);
+                cardsList.add(arcanaCards);
+            }
+            SPUtil.put(context,"cardinfo",JsonUtils.entityToJsonString(cardsList));
+            return cardsList;
+        }
+    }
+
+    public static ArrayList<ArcanaCardGroup> getCardsInfoByType(Context context, String path) {
+        String groupInfoJson = SPUtil.get(context,"groupinfos","").toString();
+        if (!TextUtils.isEmpty(groupInfoJson)) {
+            Type type = new TypeToken<ArrayList<ArcanaCardGroup>>(){}.getType();
+            return JsonUtils.jsonStringToEntity(groupInfoJson,type);
+        } else {
+            ArrayList<ArcanaCards> cardsList = getCardsInfo(context,path);
+            if (cardsList == null) {
+                return null;
+            }
+            ArrayList<ArcanaCardGroup> groups = new ArrayList<>();
+
+            // 天加大阿卡拉牌
+            ArcanaCardGroup bigArcanaGroup = new ArcanaCardGroup();
+            bigArcanaGroup.setTypeName("大阿卡拉牌");
+            ArrayList<ArcanaCards> big_arcana = new ArrayList<>();
+            for(int i = 0; i < 22;i++) {
+                big_arcana.add(cardsList.get(i));
+            }
+            bigArcanaGroup.setCards(big_arcana);
+            groups.add(bigArcanaGroup);
+
+            int matchCount = 0;
+            for (int i = 22; i < cardsList.size();i += matchCount) {
+                String tagName = cardsList.get(i).getName().substring(0,2);
+                matchCount = 0;
+                for (int j = i;j < cardsList.size();j++ ) {
+                    if (cardsList.get(j).getName().substring(0,2).equals(tagName)) {
+                        matchCount++;
+                        if (j != cardsList.size() - 1) {
+                            continue;
+                        }
+                    }
+                    if (matchCount != 0) {
+                        ArcanaCardGroup arcanaCardGroup = new ArcanaCardGroup();
+                        arcanaCardGroup.setTypeName(tagName);
+                        arcanaCardGroup.getCards().addAll(cardsList.subList(i,i + matchCount));
+                        groups.add(arcanaCardGroup);
+                        break;
+                    }
+                }
+            }
+            SPUtil.put(context,"groupinfos",JsonUtils.entityToJsonString(groups));
+            return groups;
+        }
+
+    }
+
+    public static ArrayList<DivinationItemEntity> getDivinationItemEntityFromAssets(Context context) {
+        String content = SPUtil.get(context,"DivinationItemEntityList","").toString();
+        if (!TextUtils.isEmpty(content)) {
+            Type contentType = new TypeToken<ArrayList<DivinationItemEntity>>(){}.getType();
+            return JsonUtils.jsonStringToEntity(content,contentType);
+        } else {
+            ArrayList<DivinationItemEntity> divinationItemEntities = new ArrayList<>();
+            String entityContent = Util.getStringfromAssets(context,"cardarrayinfo/info.txt");
+            String[] entities = entityContent.split("@");
+            for (int i = 0 ; i < entities.length; i++) {
+                String groupId = entities[i].split("#")[0];
+                String groupName = entities[i].split("#")[1];
+                String textContent = Util.getStringfromAssets(context,"cardarrayinfo/" + groupId + ".txt");
+                String[] cardinfos = textContent.split("@");
+                for (int j = 0; j < cardinfos.length; j++) {
+                    DivinationItemEntity entity = new DivinationItemEntity();
+                    entity.setGroupName(groupName);
+                    entity.setGroupId(groupId);
+                    entity.setTitle(cardinfos[j].split("#")[0]);
+                    entity.setInfoId(cardinfos[j].split("#")[1]);   // 为了方便此处直接用"XXX.txt"作为id供后续使用
+                    divinationItemEntities.add(entity);
+                }
+            }
+            SPUtil.put(context,JsonUtils.entityToJsonString(divinationItemEntities),"");
+            return divinationItemEntities;
+        }
+    }
 }

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.fairytale.fortunetarot.widget.AlphaButton
+        android:id="@+id/btn_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@mipmap/buy_close"
+        android:layout_gravity="center_horizontal"
+        app:clickAlpha="130"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:background="@mipmap/buy_bg">
+
+        <com.fairytale.fortunetarot.widget.CustomFontTextView
+            android:id="@+id/customFontTextView_unlock"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_red_bg_selector"
+            android:gravity="center"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:text="@string/opinion_unlock"
+            android:textColor="@color/text_title_white"
+            android:textSize="16sp"
+            app:customFont="font_mini.ttf"
+            app:isBold="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/customFontTextView_unlock"
+            android:background="@mipmap/buy_inner_bg"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_centerInParent="true">
+
+            <com.fairytale.fortunetarot.widget.CustomImageView
+                android:id="@+id/img_good_opinion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/haoping_icon"
+                android:layout_centerInParent="true"/>
+
+            <com.fairytale.fortunetarot.widget.CustomFontTextView
+                android:id="@+id/customFontTextView_good_opinion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unlock_content"
+                android:layout_below="@id/img_good_opinion"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                app:customFont="font_mini.ttf"
+                android:textColor="@color/text_title_white"
+                android:lineSpacingExtra="1dp"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp">
+
+            <com.fairytale.fortunetarot.widget.CustomFontTextView
+                android:id="@+id/customFontTextView_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/opinion_unlock"
+                android:layout_centerHorizontal="true"
+
+                android:textColor="@color/navigation_text_red"
+                app:customFont="font_mini.ttf"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toLeftOf="@id/customFontTextView_title"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_drak_gray"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/line_drak_gray"/>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/line_drak_gray"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/customFontTextView_title"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_drak_gray"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/line_drak_gray"/>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/line_drak_gray"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

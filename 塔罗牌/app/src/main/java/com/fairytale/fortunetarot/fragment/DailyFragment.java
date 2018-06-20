@@ -94,7 +94,7 @@ public class DailyFragment extends BaseFragment implements DailyView{
                 String cardName = mDailyCardInfos[0].split("/")[1];
                 String htmlPath = cardName.substring(0,cardName.indexOf(".")) + ".html";
                 bundle.putString("path", "file:///android_asset/" + htmlPath);
-                bundle.putString("cardName",tv_card.getText().toString());
+                bundle.putString("cardName",mDailyCardInfos[1]);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
